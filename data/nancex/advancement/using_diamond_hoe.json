@@ -1,0 +1,20 @@
+{
+  "criteria": {
+    "usingDiamondHoe": {
+      "trigger": "minecraft:using_item",
+      "conditions": {
+        "item": {
+          "items": "minecraft:diamond_hoe"
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "usingDiamondHoe"
+    ]
+  ],
+  "rewards": {
+    "function": "nancex:util/using_diamond_hoe"
+  }
+}
