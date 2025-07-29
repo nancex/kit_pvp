@@ -2,7 +2,7 @@
 execute if score @s usingItem = @s usingItemLast run scoreboard players set @s usingItem 0
 
 execute as @s[scores={usingItem=1..}] run scoreboard players operation @s usingItemPer3T = @s usingItem
-execute as @s[scores={usingItem=1..}] run scoreboard players operation @s usingItemPer3T %= const_3 const
+execute as @s[scores={usingItem=1..}] run scoreboard players operation @s usingItemPer3T %= $const_3 const
 
 # Shoot
 scoreboard players remove @s[scores={usingItem=1..,usingItemPer3T=0,energy=1..,playerState=0}] energy 1

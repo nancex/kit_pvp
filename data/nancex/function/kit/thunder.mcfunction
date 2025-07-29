@@ -8,7 +8,7 @@ execute at @s[scores={usingItem=0,usingItemLast=1..}] run stopsound @a[distance=
 execute at @s[scores={usingItem=1..}] run particle minecraft:dust{color:[0.129,0.973,1.000],scale:1} ~-0.5 ~ ~-0.5 1.5 1 1.5 0.1 5 force @a
 
 execute as @s[scores={usingItem=1..}] run scoreboard players operation @s usingItemPer2T = @s usingItem
-execute as @s[scores={usingItem=1..}] run scoreboard players operation @s usingItemPer2T %= const_2 const
+execute as @s[scores={usingItem=1..}] run scoreboard players operation @s usingItemPer2T %= $const_2 const
 scoreboard players add @s[scores={usingItem=1..,usingItemPer2T=0,energy=..99}] energy 1
 title @s actionbar [{"bold":true,"color":"blue","italic":false,"text":"雷之法力: "},{"score":{"name":"@s","objective":"energy"}},{"bold":true,"color":"blue","italic":false,"text":" / 100"}]
 

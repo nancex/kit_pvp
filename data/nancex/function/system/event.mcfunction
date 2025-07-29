@@ -3,7 +3,7 @@
 execute if score _current_event serverStatus matches 0 if items entity @a[team=player] armor.head minecraft:golden_helmet run scoreboard players set _current_event serverStatus 1
 
 execute if score _event_tick serverStatus matches 0.. run scoreboard players operation _event_tick_per_sec serverStatus = _event_tick serverStatus
-execute if score _event_tick serverStatus matches 0.. run scoreboard players operation _event_tick_per_sec serverStatus %= const_20 const
+execute if score _event_tick serverStatus matches 0.. run scoreboard players operation _event_tick_per_sec serverStatus %= $const_20 const
 
 execute unless score _current_event serverStatus = _last_event serverStatus if score _current_event serverStatus matches 1.. run scoreboard players set _event_tick serverStatus 0
 

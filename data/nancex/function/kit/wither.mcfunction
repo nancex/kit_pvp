@@ -4,7 +4,7 @@ scoreboard players set @s[scores={canUseItem=0,energy=21..}] canUseItem 1
 scoreboard players add @s[scores={energy=..99,timerPer3T=0,playerState=0}] energy 1
 title @s actionbar [{"bold":true,"color":"dark_gray","italic":false,"text":"凋零能量: "},{"score":{"name":"@s","objective":"energy"}},{"bold":true,"color":"dark_gray","italic":false,"text":" / 100"}]
 scoreboard players add @s[scores={cdTick=0}] playerState 1
-execute as @s[scores={cdTick=0,playerState=1..}] run scoreboard players operation @s playerState %= const_2 const
+execute as @s[scores={cdTick=0,playerState=1..}] run scoreboard players operation @s playerState %= $const_2 const
 scoreboard players remove @s[scores={energy=1..,playerState=1}] energy 1
 scoreboard players set @s[scores={energy=0,playerState=1}] playerState 0
 
