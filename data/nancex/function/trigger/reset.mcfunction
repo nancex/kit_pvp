@@ -24,6 +24,7 @@ scoreboard players set @s playerLastState 0
 scoreboard players set @s energy 0
 scoreboard players set @s canUseItem 1
 scoreboard players set @s canUseItem2 1
+scoreboard players set @s canUseItem3 1
 
 title @s times 0s 5t 0s
 
