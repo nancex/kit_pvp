@@ -33,4 +33,8 @@ title @s times 0s 5t 0s
 effect clear @s
 effect give @s minecraft:regeneration 3 255 true
 
+attribute @s minecraft:gravity base reset
+attribute @s minecraft:jump_strength base reset
+attribute @s minecraft:movement_speed base reset
+
 tp @s 987 -1 -3 180 0
