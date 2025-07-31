@@ -2,6 +2,8 @@ tellraw @s[scores={cdTick=0..}] {"color":"red","text":"部分技能仍在冷却�
 execute if entity @s[scores={cdTick=0..}] run return fail
 tellraw @s[scores={cdTick2=0..800}] {"color":"red","text":"部分技能仍在冷却，无法返回大厅！"}
 execute if entity @s[scores={cdTick2=0..800}] run return fail
+tellraw @s[scores={cdTick3=0..800}] {"color":"red","text":"部分技能仍在冷却，无法返回大厅！"}
+execute if entity @s[scores={cdTick3=0..800}] run return fail
 tellraw @s[tag=player_boss] {"color":"red","text":"你是Boss，死亡前无法返回大厅！"}
 execute if entity @s[tag=player_boss] run return fail
 
@@ -21,6 +23,7 @@ scoreboard players set @s cdTick3 -2
 scoreboard players set @s cdSec3 -2
 scoreboard players set @s timerTick -2
 scoreboard players set @s timerSec -2
+scoreboard players set @s timerTemp -2
 scoreboard players set @s playerState 0
 scoreboard players set @s playerLastState 0
 scoreboard players set @s energy 0

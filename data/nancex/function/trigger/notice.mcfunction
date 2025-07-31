@@ -6,9 +6,9 @@ tellraw @a ""
 
 tellraw @a {"color":"aqua","italic":false,"text":"当前开房版本：1.21.8"}
 
-tellraw @a {"color":"aqua","italic":false,"text":"MC联机Q群：815019456"}
+# tellraw @a {"color":"aqua","italic":false,"text":"MC联机Q群：815019456"}
 
-tellraw @a {"color":"red","italic":false,"text":"禁止刷屏&开挂，本服除腐竹外不设任何OP"}
+tellraw @a {"color":"red","italic":false,"text":"禁止刷屏&开挂"}
 
 tellraw @a {"color":"aqua","italic":false,"text":"玩的开心ヾ(•ω•`)o"}
 
