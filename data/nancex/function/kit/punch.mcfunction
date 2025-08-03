@@ -12,7 +12,7 @@ scoreboard players remove @s[scores={playerState=1}] usingItem 4
 scoreboard players set @s[scores={playerState=1,usingItem=..-1}] usingItem 0
 scoreboard players set @s[scores={playerState=0,usingItem=41..}] usingItem 41
 scoreboard players set @s[scores={playerState=0,cdTick=0..}] usingItem 0
-scoreboard players remove @s[scores={playerState=0},nbt={OnGround:0b},usingItem=1..] usingItem 1
+scoreboard players remove @s[scores={playerState=0,usingItem=1..},nbt={OnGround:0b}] usingItem 1
 
 execute at @s[scores={playerState=0,usingItem=1}] run playsound minecraft:item.crossbow.quick_charge_1 master @a ~ ~ ~ 1 1 0
 execute at @s[scores={cdTick=0}] run playsound minecraft:entity.blaze.shoot master @a ~ ~ ~ 1 1 0
@@ -38,7 +38,7 @@ title @s[scores={playerState=1}] actionbar ""
 attribute @s[scores={playerState=0,usingItem=1..}] minecraft:jump_strength base set 0.0
 attribute @s[scores={playerState=1,playerLastState=0}] minecraft:jump_strength base reset
 
-execute as @s[scores={playerState=1,playerLastState=0}] store result storage nancex:storage punch_damage float 0.5 run scoreboard players get @s usingItem
+execute as @s[scores={playerState=1,playerLastState=0}] store result storage nancex:storage punch_damage float 0.45 run scoreboard players get @s usingItem
 execute at @s[scores={playerState=1}] as @e[distance=0.01..2] run function nancex:util/punch_damage with storage nancex:storage
 
 scoreboard players set @s[scores={playerState=1,playerLastState=1},nbt={OnGround:1b}] playerState 0
@@ -56,8 +56,14 @@ execute as @s[scores={cdTick2=0}] at @s facing ~ ~1 ~ run function player_motion
 execute at @s[scores={cdTick2=0}] run playsound minecraft:entity.ender_dragon.flap master @a ~ ~ ~ 1 1.25 0
 execute at @s[scores={cdTick2=0..10}] run particle minecraft:flame ~ ~ ~ 0 0 0 0.05 10 force
 
+execute at @s[scores={cdTick2=0}] rotated ~ 0 positioned ^ ^ ^2 at @e[distance=..1.99] run tag @n add punched_up
 execute at @s[scores={cdTick2=0}] rotated ~ 0 positioned ^ ^ ^2 at @e[distance=..1.99] run damage @n 4 generic by @s
-execute at @s[scores={cdTick2=0}] rotated ~ 0 positioned ^ ^ ^2 at @e[distance=..1.99] run damage @n 4 generic by @s
+execute as @e[tag=punched_up] run scoreboard players operation @s timerTemp2 = @s timerTick
+scoreboard players add @e[tag=punched_up] timerTemp2 2
+effect give @e[tag=punched_up] minecraft:levitation 5 62 true
+tag @e[tag=punched_up] remove punched_up
+execute as @e if score @s timerTick = @s timerTemp2 run effect clear @s minecraft:levitation
+
 
 # Skill punch down
 execute at @s[scores={sneakTime=1..,playerState=0,cdTick3=-2},nbt={OnGround:0b}] if block ~ ~-1 ~ air if block ~ ~-2 ~ air run scoreboard players set @s playerState 3
@@ -100,4 +106,4 @@ scoreboard players operation @s usingItemLast = @s usingItem
 scoreboard players set @s[scores={sneakTime=1..}] sneakTime 0
 scoreboard players set @s[scores={jump=1..}] jump 0
 
-execute as @s[team=!protected,gamemode=adventure] unless items entity @s hotbar.6 minecraft:barrier unless items entity @s hotbar.6 minecraft:white_stained_glass_pane run item replace entity @s hotbar.6 with white_stained_glass_pane[custom_name={"bold":true,"color":"red","italic":false,"text":"冷却时间槽"}]
+execute as @s[team=!protected,gamemode=adventure] unless items entity @s hotbar.6 minecraft:barrier unless items entity @s hotbar.6 minecraft:white_stained_glass_pane run item replace entity @s hotbar.6 with white_stained_glass_pane[custom_name={"bold":true,"color":"red","italic":false,"text":"冷却时间槽"},custom_data={shouldClear:1b}]

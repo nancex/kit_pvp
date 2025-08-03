@@ -6,7 +6,7 @@ tellraw @a ""
 
 tellraw @a {"color":"aqua","italic":false,"text":"当前开房版本：1.21.8"}
 
-# tellraw @a {"color":"aqua","italic":false,"text":"MC联机Q群：815019456"}
+tellraw @a {"color":"gold","italic":false,"text":"联机Q群:515465094 群里发布数据包/地图"}
 
 tellraw @a {"color":"red","italic":false,"text":"禁止刷屏&开挂"}
 

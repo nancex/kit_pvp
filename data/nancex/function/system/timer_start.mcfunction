@@ -57,3 +57,6 @@ execute as @a[scores={timerTick=0..}] run scoreboard players operation @s timerP
 execute as @a[scores={timerTick=0..}] run scoreboard players operation @s timerPer3T %= $const_3 const
 execute as @a[scores={timerTick=0..}] run scoreboard players operation @s timerPerSec = @s timerTick
 execute as @a[scores={timerTick=0..}] run scoreboard players operation @s timerPerSec %= $const_20 const
+
+# Entity timer
+scoreboard players add @e[type=!player] timerTick 1

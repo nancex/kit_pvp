@@ -14,6 +14,7 @@ tag @s remove Wither
 tag @s remove Elf
 tag @s remove Thunder
 tag @s remove MachineGun
+tag @s remove Punch
 
 scoreboard players set @s cdTick -2
 scoreboard players set @s cdSec -2
@@ -24,6 +25,7 @@ scoreboard players set @s cdSec3 -2
 scoreboard players set @s timerTick -2
 scoreboard players set @s timerSec -2
 scoreboard players set @s timerTemp -2
+scoreboard players set @s timerTemp2 -2
 scoreboard players set @s playerState 0
 scoreboard players set @s playerLastState 0
 scoreboard players set @s energy 0
